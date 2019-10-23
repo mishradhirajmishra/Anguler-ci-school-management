@@ -1,0 +1,93 @@
+<div class="container-fluid">
+    <div class="alert alert-success alert-dismissible fade show" *ngIf="msg">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+        <strong>{{msg}}</strong>
+    </div>
+    <div class="row mt-3 mb-5">
+        <div class="col-md-12">
+            <div class="login dark-gray">
+                <h1 class="inner"> <span class="left"><i class="fa  fa-user"></i></span> Guardian<span> Detail</span>
+                    <button id="edit" class="btn btn-ch" (click)="editFun()"> <i class="fa fa-pencil"></i> &nbsp;Edit</button>
+                </h1>
+                <hr class="hr-white">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="scrolling outer">
+                            <div class="inner-table">
+                                <table class="table table-striped table-hover table-condensed">
+                                    <tr>
+                                        <th>Name:</th>
+                                        <td>{{guardian?.guardian_name}}</td>
+                                    </tr>
+                                     <tr>
+                                        <th>Age:</th>
+                                        <td>{{guardian?.guardian_age}}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Nationality :</th>
+                                        <td>{{guardian?.nationality}}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Qualification : </th>
+                                        <td>{{guardian?.guardian_qualifications}}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Institute: </th>
+                                        <td>{{guardian?.guardian_instituion}}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Occupation :</th>
+                                        <td>{{guardian?.guardian_occupation}}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Designation:</th>
+                                        <td>{{guardian?.guardian_designation}}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Annual Income:</th>
+                                        <td>{{guardian?.guardian_annual_income}}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Mobile No :</th>
+                                        <td>{{guardian?.guardian_mobile}}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Email :</th>
+                                        <td>{{guardian?.email}}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Aadhaar No:</th>
+                                        <td>{{guardian?.aadhaar_no}}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Office Address:</th>
+                                        <td>{{guardian?.guardian_office_address}}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Home Address: </th>
+                                        <td>{{guardian?.guardian_home_address}}</td>
+                                    </tr>
+
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="coll-md-6 " style="margin: 0px auto">
+                                <div class="card bg-dark text-white">
+                                    <div class="card-body text-center">
+                                <img class="img-fluid profile-image " src="{{url}}" alt="">
+                                <br>
+                                 <h4 class="mt-2"><input *ngIf="!showUpdateBtn" type="file" id="file" class="inputfile"(change)="onSelectChange($event)" />
+                                    <label class="button button white but-sm" for="file">Choose</label>
+                                    &nbsp;&nbsp; <button *ngIf="showUpdateBtn" class="btn btn-ch" (click)="updateProfileImage()">Upload</button>
+                                </h4>
+                            </div>
+                         </div>
+                    </div>
+                </div>
+
+                <hr class="hr-white">                
+            </div>
+        </div>
+    </div>
+</div>

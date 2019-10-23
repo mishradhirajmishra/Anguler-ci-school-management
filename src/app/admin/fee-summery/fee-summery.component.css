@@ -1,0 +1,60 @@
+th,td {
+    vertical-align: middle !important;
+}
+td.no-border {
+    border: none;
+    background-color: black;
+    font-size: 14px;
+    border-bottom: 1px dotted gray;
+   
+}
+th.no-border {
+    border: none;
+    background-color: black;
+    border-bottom: 1px dotted gray;
+    width: 100px;
+}
+button.btn.btn-ch {
+    font-size: 12px;
+    padding: 0px 10px;
+
+}
+.table thead th {
+   vertical-align: middle !important;
+    border-bottom: none!important;
+}
+.w100 {
+    width: 100px !important;
+}
+span.badge-add.right {
+    cursor: pointer;
+    color: white;
+    border: 1px solid white;
+    border-radius: 50%;
+    background: red;
+    padding: 0px 6px;
+    margin: 0px 10px;
+      box-shadow: 10px 10px 108px 0px rgba(255,255,255,1);
+}
+.scrolling td.headcol, .scrolling th.headcol {
+    width: 100px;
+}
+.inner-table {
+    margin-left: 100px;
+}
+.status{width: 80px};
+.action{width: 50px};
+.change-col{background-color: black}
+
+span.label.label-sm.btn-green {
+    color: yellow;
+}
+/* span.label.label-sm.btn-red {
+    color: red;
+} */
+.w300 {
+    width: 100px !important;
+    border: none;
+    border-bottom: 1px dotted white;
+
+}

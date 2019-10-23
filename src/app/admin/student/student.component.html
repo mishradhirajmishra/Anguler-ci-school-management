@@ -1,0 +1,17 @@
+<div class="container-fluid">
+  <div class="row mt-3 ">
+ <div class="col-md-12">       
+<div class="btn-group btn-group-xs">           
+<button routerLink="/admin/student/add-student" routerLinkActive="active-white" type="button" class="btn btn-ch"><i  class='fa'>&#xf055;</i> Add Student</button>
+<button routerLink="/admin/student/all-student" routerLinkActive="active-white" type="button" class="btn btn-ch"><i class='fa fa-users'></i> All Student</button>
+<button routerLink="/admin/student/stu-attendance" routerLinkActive="active-white" type="button" class="btn btn-ch"><i class='fa fa-calendar'></i> Attendance</button>
+</div>   
+<div class="btn-group btn-group-xs">           
+  <button routerLink="/admin/student/attendance-report" routerLinkActive="active-white" type="button" class="btn btn-ch"><i class="fa fa-file" aria-hidden="true"></i> Attendance Report</button>
+  <button routerLink="/admin/student/attendance-analysis" routerLinkActive="active-white" type="button" class="btn btn-ch"><i class="fa fa-file" aria-hidden="true"></i> Attendance Analysis</button>
+  <button routerLink="/admin/student/assessment-report" routerLinkActive="active-white" type="button" class="btn btn-ch"><i class="fa fa-file" aria-hidden="true"></i>  Assessment Report</button>
+  </div>    
+      </div>
+  </div>
+  </div>
+  <router-outlet></router-outlet>

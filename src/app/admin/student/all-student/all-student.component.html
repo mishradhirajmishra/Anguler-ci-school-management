@@ -1,0 +1,103 @@
+<div class="container-fluid">
+  <div class="alert alert-success alert-dismissible fade show" *ngIf="msg">
+    <button type="button" class="close" (click)="msg=''">&times;</button>
+    <strong>{{msg}}</strong>
+  </div>
+  <div class="row mt-3 mb-5">
+    <div class="col mb-1">
+      <input id="Search" class="form-control" type="text" [(ngModel)]="nameFilter.student_name"
+        placeholder="Search Name Here ...">
+    </div>
+    <div class="col mb-1 text-center">
+      <button type="button" (click)="showForm()"  class="btn btn-ch"><i  class='fa'>&#xf055;</i> Add</button>
+
+    </div>
+    <div class="col mb-1">
+      <select [(ngModel)]="nameFilter.class_id">
+        <option value="">All Class</option>
+        <option *ngFor="let cl of classlist" [value]="cl.class_id">{{cl.name}}</option>
+      </select> </div>
+    <div class="col-md-12">
+      <!-- {{allStudent |json}} -->
+      <div class="login dark-gray">
+        <h1 class="inner"> <span class="left"><i class="fa  fa-users"></i></span> All<span> Students</span></h1>
+    
+        <div class="scrolling outer">
+          <div class="inner-table">
+            <!--  -->
+            <table *ngIf="showFormVar" class="table table-striped table-hover table-condensed">
+                  <tr>
+
+                    <th class="headcol"><input class="form-control f-ch" type="text" [(ngModel)]="student_name" name="student_name" placeholder="Student Name ..."></th>
+                    <th><select class="form-control f-ch" [(ngModel)]="class_id" name="class_id" (change)="getSectionFrm($event)">
+                        <option *ngFor="let cl of classlist" [value]="cl.class_id">{{cl.name}}</option>
+                      </select>
+                    </th>
+                    <th><select class="form-control f-ch" [(ngModel)]="section_id" name="section_id">
+                        <option *ngFor="let sec of sectionlist" [value]="sec.section_id">{{sec.name}}</option>
+                      </select>                  
+                    </th>
+                    <th><select class="form-control f-ch" [(ngModel)]="guardian_key" name="guardian_key">
+                        <option *ngFor="let guard of guardianList" [value]="guard.guardian_key">{{guard.guardian_name}} ( Mo. No. {{guard.guardian_mobile}})</option>                                   
+                        </select>
+                    </th>
+                    <th ><input class="form-control f-ch" type="text" [(ngModel)]="sr_no" name="sr_no" placeholder="SR No ..."></th>
+                    <th><input class="form-control f-ch" type="text" [(ngModel)]="admission_no" name="admission_no" placeholder="Admission No ..."></th>
+                    <th><button *ngIf="student_name && class_id && section_id && guardian_key" type="button" (click)="onSubmit()"  class="btn btn-ch" >Add</button></th>
+                  </tr>
+            </table>
+            <!--  -->
+            <table class="table table-striped table-hover table-condensed">
+              <thead>
+                <tr>
+                  <th class="headcol"> SN &nbsp;Name</th>
+                  <th>Class</th>
+                  <th>Section</th>
+                  <th>Guardian</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let stu of allStudent | filterBy: nameFilter; let i=index">
+
+                  <td class="headcol">{{i+1}} &nbsp;&nbsp;&nbsp;{{stu.student_name}}</td>
+
+                  <td>
+                    <select [(ngModel)]="stu.class_id" name="stu.class_id" (change)="getSection($event,i)">
+                      <option *ngFor="let cl of classlist" [value]="cl.class_id">{{cl.name}}</option>
+                    </select>
+                  </td>
+                  <td>
+                    <select [(ngModel)]="stu.section_id" name="stu.section_id">
+                      <option *ngFor="let sec of stu.section_list" [value]="sec.section_id">{{sec.name}}</option>
+                    </select>
+                  </td>
+                  <td>
+                    <select [(ngModel)]="stu.guardian_key" name="stu.guardian_key">
+                      <option *ngFor="let guard of guardianList" [value]="guard.guardian_key">{{guard.guardian_name}}
+                      </option>
+                    </select>
+
+                  </td>
+                  <td>
+                    <div class="btn-group btn-group-xs">
+                      <button *ngIf="stu.section_id !=0"
+                        (click)="update(stu.student_key,stu.guardian_key,stu.class_id,stu.section_id)" type="button"
+                        class="btn btn-ch ">Update</button>
+                      <button (click)="edit(stu.student_key)" type="button" class="btn btn-ch ">Edit</button>
+                      <button (click)="detail(stu.student_key)" type="button" class="btn  btn-ch ">Detail</button>
+
+                    </div>
+                  </td>
+
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <hr class="hr-white">
+        <br>
+      </div>
+    </div>
+  </div>
+</div>

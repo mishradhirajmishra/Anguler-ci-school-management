@@ -1,0 +1,192 @@
+<div class="container-fluid">
+    <div class="alert alert-success alert-dismissible fade show" *ngIf="msg">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+        <strong>{{msg}}</strong>
+    </div>
+    <!-- {{ guprofileForm.value |json}} -->
+
+    <div class="row mt-3 mb-5">
+        <div class="col-md-12">
+            <div class="login dark-gray">
+                <h1 class="inner"> <span class="left"><i class="fa  fa-user"></i></span> {{headText}}<span>
+                        Student</span></h1>
+                <hr class="hr-white">
+                <form [formGroup]="guprofileForm" (ngSubmit)="onSubmit()">
+
+                    <!--=====================================-->
+                    <div class="form-group">
+                        <div class="row">
+                            <label for="field-1" class="col-md-2">SR NO : </label>
+                            <div class="col-md-4">
+                                <input type="text" formControlName="sr_no" name="sr_no">
+                            </div>
+                            <label for="field-1" class="col-md-2">Admission No. : </label>
+                            <div class="col-md-4">
+                                <input type="text" formControlName="admission_no" name="admission_no">
+                            </div>
+                        </div>
+                    </div>
+                    <!--=====================================-->
+                    <div class="form-group">
+                        <div class="row">
+                            <label class="col-md-2">Name :</label>
+                            <div class="col-md-4">
+                                <input type="text" formControlName="student_name" name="student_name">
+                            </div>
+                            <label class="col-md-2">Aadhaar No:</label>
+                            <div class="col-md-4">
+                                <input type="text" formControlName="aadhaar_no" name="aadhaar_no">
+                            </div>
+                        </div>
+                    </div>
+                    <!--=====================================-->
+                    <div class="form-group">
+                        <div class="row">
+
+                            <label class="col-md-2">Gender :</label>
+                            <div class="col-md-4">
+                                <select formControlName="gender" name="gender">
+                                    <option value="male">Male</option>
+                                    <option value="female">Female</option>
+                                </select>
+                            </div>
+                            <label class="col-md-2">Birthday :</label>
+                            <div class="col-md-4">
+                                <input type="date" formControlName="birthday" name="birthday" value="">
+                            </div>
+                        </div>
+                    </div>
+                    <!--=====================================-->
+                    <div class="form-group">
+                        <div class="row">
+
+                            <label class="col-md-2">Class :</label>
+                            <div class="col-md-4">
+                                <select formControlName="class_id" name="class_id" (change)="getSection($event)">
+                                    <option *ngFor="let cl of classlist" [value]="cl.class_id">{{cl.name}}</option>                                    
+                                </select>
+                            </div>
+                            <label class="col-md-2">Section :</label>
+                            <div class="col-md-4">
+                                <select formControlName="section_id" name="section_id">
+                                        <option *ngFor="let sec of sectionlist" [value]="sec.section_id">{{sec.name}}</option>                                    
+
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <!--=====================================-->
+                    <!--=====================================-->
+                    <div class="form-group">
+                        <div class="row">
+
+                            <label class="col-md-2">Nationality :</label>
+                            <div class="col-md-4">
+                                <select formControlName="nationality" name="nationality">
+                                    <option value="indian">Indian</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                            <label class="col-md-2">Religion :</label>
+                            <div class="col-md-4">
+                                <select formControlName="religion" name="religion">
+                                    <option value="Hinduism">Hinduism</option>
+                                    <option value="Islam">Islam</option>
+                                    <option value="Christianity">Christianity</option>
+                                    <option value="Buddhism">Buddhism</option>
+                                    <option value="Sikhism">Sikhism</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <!--=====================================-->
+                    <div class="form-group">
+                        <div class="row">
+                            <label  class="col-md-2">Guardian : </label>
+                            <div class="col-md-4">                                  
+                              <select formControlName="guardian_key" name="guardian_key">
+                                <option *ngFor="let guard of guardianList" [value]="guard.guardian_key">{{guard.guardian_name}} ( Mo. No. {{guard.guardian_mobile}})</option>                                   
+                                </select>
+                                  
+                            </div>
+                            <label class="col-md-2">Relation To Guardian: </label>
+                            <div class="col-md-4">
+                                    <select formControlName="relation_to_guardian" name="relation_to_guardian">
+                                            <option  value="father" >Father</option>
+                                            <option  value="mother" >Mother</option>
+                                            <option  value="guardian" >Guardian</option>
+                                    </select>
+                            </div>
+                        </div>
+                    </div>
+                    <!--=====================================-->
+                    <div class="form-group">
+                        <div class="row">
+                            <label for="field-1" class="col-md-2">Morher's Name : </label>
+                            <div class="col-md-4">
+                                <input type="text" formControlName="mother" name="mother">
+                            </div>
+                            <label for="field-1" class="col-md-2">Father's Name : </label>
+                            <div class="col-md-4">
+                                <input type="text" formControlName="father" name="father">
+                            </div>
+                        </div>
+                    </div>
+                    <!--=====================================-->
+
+                    <div class="form-group">
+                        <div class="row">
+                            <label for="field-1" class="col-md-2">Category : <em>*</em></label>
+                            <div class="col-md-4">
+                                    <select formControlName="category" name="category" >
+                                        <option  value="general" >General</option>
+                                        <option  value="obc" >OBC</option>
+                                        <option  value="sc" >SC</option>
+                                        <option  value="st" >ST</option>
+                                    </select>
+                            </div>
+                            <label for="field-1" class="col-md-2">Email : </label>
+                            <div class="col-md-4">
+                                <input type="text" formControlName="email" name="email">
+                            </div>
+                        </div>
+                    </div>
+                    <!--=====================================-->
+                    <div class="form-group">
+                        <div class="row">
+                            <label for="field-1" class="col-md-2">Correspondence Address : </label>
+                            <div class="col-md-10">
+                                <input type="text" formControlName="correspondence_address"
+                                    name="correspondence_address">
+                            </div>
+                        </div>
+                    </div>
+                    <!--=====================================-->
+                    <div class="form-group">
+                        <div class="row">
+                            <label for="field-1" class="col-md-2">Residential Address : </label>
+                            <div class="col-md-10">
+                                <input type="text" formControlName="residential_address" name="residential_address">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--=====================================-->
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                    <button type="button"  id="reset" (click)="reset()">Reset</button>
+                                <input *ngIf="!student_key" type="submit" [disabled]="guprofileForm.invalid" id="submit"
+                                    class=" btn btn-success" value="Submit">
+                                <input *ngIf="student_key" type="submit" [disabled]="guprofileForm.invalid" id="submit"
+                                    class=" btn btn-success" value="Update">
+                            </div>
+                        </div>
+                    </div>
+                    <!--=====================================-->
+                    <hr class="hr-white"> 
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

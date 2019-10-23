@@ -1,0 +1,107 @@
+<div class="container-fluid">
+
+  <div class="alert alert-success alert-dismissible fade show" *ngIf="msg">
+    <button (click)="closemsg()" type="button" class="close" data-dismiss="alert">&times;</button>
+    <strong>{{msg}}</strong>
+  </div>
+
+  <div class="row mt-3 mb-5">
+    <!-- {{student |json}} -->
+    <div class="col-md-12">
+      <div class="login dark-gray">
+        <h1 class="inner"> <span class="left"><i class="fa fa-list-alt"></i></span> Cl<span>ass</span>
+        </h1>
+        <hr class="hr-white">
+        <div class="row">
+          <div class="col-md-8 offset-md-2">
+            <div class="scrolling outer">
+              <div class="inner-table">
+                <table class="table table-striped table-hover table-condensed">
+                  <thead>
+                    <tr>
+                      <th class="headcol"> SN:&nbsp;&nbsp;&nbsp;Class
+
+                      </th>
+                      <th>
+                    <tr>
+                      <th class="no-border text-center" colspan="6">Section</th>
+                    </tr>
+                    <tr>
+                      <th class="no-border">SN.</th>
+                      <th class="no-border">Name</th>
+                      <th class="no-border">class Teacher</th>
+                      <th class="no-border">Medium</th>
+                      <th class="no-border">Edit</th>
+                      <th class="no-border">Add</th>
+                    </tr>
+                    </th>
+
+                    <th class="status"> Status</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let cl of allClass;let i=index">
+                      <td class="headcol">{{i+1}} - {{cl.name}} </td>
+                      <td>
+                        <!-- ---------------- -->
+                        <span *ngIf="cl.status==1">
+                    <tr *ngFor="let sec of cl.section;let j=index">
+                      <td class="no-border">{{j+1}}</td>
+                      <td class="no-border">{{sec.name}}</td>
+                      <td class="no-border">{{sec.teacher_name}}</td>
+                      <td class="no-border">{{sec.medium}}</td>
+                      <td class="no-border text-center"><button class="btn btn-ch" (click)="editClass(i,j)"><i
+                            class="fa fa-pencil"></i></button>
+                      </td>
+                      <td rowspan="5" *ngIf="j==0" class="no-border text-center">
+                        <span class="badge-add right" (click)="showForm(i)"><i class="fa fa-plus"></i></span>
+                      </td>
+                    </tr>
+                    <tr *ngIf="cl.add_section.show">
+                      <td><input type="text" [(ngModel)]="cl.add_section.section_name"
+                          name="cl.add_section.section_name" class="form-control w100" placeholder="Section Name"></td>
+                      <td colspan="2">
+                        <select [(ngModel)]="cl.add_section.teacher_id" name="cl.add_section.teacher_id"
+                          class="form-control w200">
+                          <option value="">Select Teacher </option>
+                          <option *ngFor="let teacher of teacherList" [value]="teacher.employee_id">{{teacher.name}}
+                          </option>
+                        </select>
+                      </td>
+                      <td><select type="text" [(ngModel)]="cl.add_section.medium" name="cl.add_section.medium"
+                          class="form-control w100">
+                          <option value="English">English</option>
+                          <option value="Hindi">Hindi</option>
+                        </select>
+                      </td>
+                      <td class="no-border text-center">
+                        <button *ngIf="!edit" class="btn btn-ch" (click)="addSection(i)">Add</button>
+                        <button *ngIf="edit" class="btn btn-ch" (click)="updateSection(i,j)">Update</button>
+                      </td>
+                    </tr>
+                    </span>
+                    <!-- ---------------- -->
+                    </td>
+                    <td class="status">
+                      <span *ngIf="cl.status==1" class="badge-active"
+                        (click)="changeStatus(cl.class_id,i,0)">&nbsp;&nbsp;Active&nbsp;</span>
+                      <span *ngIf="cl.status==0" class="badge-inactive"
+                        (click)="changeStatus(cl.class_id,i,1)">InActive</span><br>
+                    </td>
+
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <hr class="hr-white">
+
+        <br>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,54 @@
+<div class="container-fluid">
+
+    <div class="alert alert-success alert-dismissible fade show" *ngIf="msg">
+        <button (click)="closemsg()" type="button" class="close" data-dismiss="alert">&times;</button>
+        <strong>{{msg}}</strong>
+    </div>
+    <!--==============================  -->
+    <div class="col-md-12 text-right mt-3">
+        <div class="btn-group btn-group-xs gp-bottom">
+                <button routerLink="/admin/student/student-detail/{{student_key}}" routerLinkActive="active-white"
+                type="button" class="btn btn-ch">Student Detail</button>
+            <button routerLink="/admin/student/birth-certificate/{{student_key}}" routerLinkActive="active-white"
+                type="button" class="btn btn-ch">Birth Certificate</button>
+            <button routerLink="/admin/student/character-certificate/{{student_key}}" routerLinkActive="active-white"
+                type="button" class="btn btn-ch">Character Certificate</button>
+            <!-- <button routerLink="/admin/student/medical-certificate/{{student_key}}" routerLinkActive="active-white"
+                type="button" class="btn btn-ch">Medical Certificate</button> -->
+            <button routerLink="/admin/student/leaving-certificate/{{student_key}}" routerLinkActive="active-white"
+                type="button" class="btn btn-ch">Leaving Certificate</button>
+            <button routerLink="/admin/student/category-certificate/{{student_key}}" routerLinkActive="active-white"
+                type="button" class="btn btn-ch">Category Certificate</button>
+        </div>
+    </div>
+    <!-- ================================= -->
+    <div class="row mt-3 mb-5">
+        <!-- {{student |json}} -->
+        <div class="col-md-12">
+            <div class="login dark-gray">
+                <h1 class="inner"> <span class="left"><i class="fa fa-certificate" aria-hidden="true"></i></span> Medical <span> Certificate</span> </h1>
+                <hr class="hr-white">
+                <div class="row">
+                     <div class="coll-md-12 card-center">
+                        <div class="card bg-dark text-white mt-5">
+                            <div class="card-body text-center">
+                                <img class="img-fluid cert-image " src="{{url}}" alt="">
+                                <br>
+                                <h4 class="mt-2"><input *ngIf="!showUpdateBtn" type="file" id="file" class="inputfile"
+                                        (change)="onSelectChange($event)" />
+                                    <label class="button button white but-sm" for="file">Choose</label>
+                                    &nbsp;&nbsp; <button *ngIf="showUpdateBtn" class="btn btn-ch"
+                                        (click)="updateProfileImage()">Upload</button>
+                                </h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <hr class="hr-white">
+
+                <br>
+            </div>
+        </div>
+    </div>
+</div>

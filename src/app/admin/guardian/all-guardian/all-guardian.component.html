@@ -1,0 +1,60 @@
+<div class="container-fluid">
+  <div class="row mt-3 mb-5">
+    <div class="col mb-1">
+
+        <input id="Search" class="form-control" type="text" [(ngModel)]="nameFilter.guardian_name"
+        placeholder="Search Name Here ...">
+    </div>
+    <div class="col mb-1"></div>
+    <div class="col mb-1">
+        <input id="Search" class="form-control" type="text" [(ngModel)]="nameFilter.guardian_home_address"
+        placeholder="Search Home Address Here ...">
+
+    </div>
+    <div class="col-md-12">
+      <div class="login dark-gray">
+        <h1 class="inner"> <span class="left"><i class="fa  fa-users"></i></span> All<span> Guardian</span></h1>
+        <!-- {{allGuardian |json}} -->
+        <div class="scrolling outer">
+          <div class="inner-table">
+            <table class="table table-striped table-hover table-condensed">
+              <thead>
+                <tr>
+                  <th class="headcol"> SN &nbsp;Name</th>
+                  <th>Mobile No</th>
+                  <th>Email</th>
+                  <th class="width300">Home Address</th>
+                  <th class="width300">Office Address</th>
+                  <th>Action</th>
+
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let guard of allGuardian | filterBy: nameFilter; let i=index">
+
+                  <td class="headcol">{{i+1}} &nbsp;&nbsp;&nbsp;{{guard.guardian_name}}</td>
+
+                  <td>{{guard.guardian_mobile}}</td>
+                  <td>{{guard.email}}</td>
+                  <td class="width300">{{guard.guardian_home_address}}</td>
+                  <td class="width300">{{guard.guardian_office_address}}</td>
+                  <!-- <td><button (click)="edit(guard.guardian_key)" class="btn btn-success btn-icon"><i class="fa fa-pencil"></i> Edit</button></td> -->
+                  <td>
+                    <div class="btn-group btn-group-xs">
+                      <button (click)="edit(guard.guardian_key)" type="button" class="btn btn-ch ">Edit</button>
+                      <button (click)="detail(guard.guardian_key)" type="button" class="btn  btn-ch ">Detail</button>
+
+                    </div>
+                  </td>
+
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <hr class="hr-white">
+        <br>
+      </div>
+    </div>
+  </div>
+</div>

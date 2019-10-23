@@ -1,0 +1,19 @@
+.example-form {
+    width: 100%;
+  }
+  
+  .example-full-width {
+    width: 100% !important;
+  }
+  label.radio-inline.ch {
+    margin-right: 30px;
+}
+label {
+    margin-bottom: 0px;
+}
+.inner-table {
+  margin-left: 20px!important;
+}
+.inner-table {
+  margin-right: 20px;
+}

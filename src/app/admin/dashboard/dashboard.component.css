@@ -1,0 +1,55 @@
+.card-stats .card-header.card-header-icon i {
+    font-size: 36px;
+    line-height: 56px;
+    width: 56px;
+    height: 56px;
+    text-align: center;
+}
+span.bladge {
+    float: right;
+    background-color: green;
+    padding: 10px;
+    border-radius: 22px;
+    color: white;
+}
+span.bladge-yellow {
+    float: right;
+    background-color: yellow;
+    border-radius: 50px;
+    padding: 2px 20px;
+    color: red;
+    border: 1px solid  black;
+}
+span.bladge-green {
+    float: right;
+    background-color: lightgreen;
+    border-radius: 50px;
+    padding: 2px 20px;
+    color: greenyellow;
+    border: 1px solid  green;
+}
+.card.card-stats {
+    margin-top: 20px;
+}
+.card-footer {
+    background: linear-gradient(to right,greenyellow,black);
+    /* background-color:  black; */
+    color: white;
+    text-align: center;
+}
+h3.head-text {
+    color: white;
+}
+.card.card-stats {
+    cursor: pointer;
+}
+.card.card-stats {
+    margin: 10px;
+}
+h3.head-text {
+    font-size: 20px;
+}
+i.fa {
+    background-color: #554b4b;
+    box-shadow: -1px -1px 20px 11px #212529;
+}

@@ -1,0 +1,141 @@
+<div class="container-fluid">
+    <div class="alert alert-success alert-dismissible fade show" *ngIf="msg">
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+          <strong>{{msg}}</strong> 
+        </div>
+    
+<div class="row mt-3 mb-5">
+    <div class="col-md-12">
+        <div class="login dark-gray">
+                <h1 class="inner"> <span class="left"><i class="fa  fa-user"></i></span> {{headText}}<span> Guardian</span></h1>
+                <hr class="hr-white">
+            <form [formGroup]="guprofileForm" (ngSubmit)="onSubmit()">
+
+                <!--=====================================-->
+                <div class="form-group">
+                    <div class="row">
+                        <label class="col-md-2">Name:</label>
+                        <div class="col-md-10">
+                            <input type="text" class="" formControlName="guardian_name" name="guardian_name" >
+                        </div>
+                    </div>
+                </div>
+                <!--=====================================-->
+                <div class="form-group">
+                    <div class="row">
+                        <label class="col-md-2">Age:</label>
+                        <div class="col-md-4">
+                            <input type="number" class="" formControlName="guardian_age" name="guardian_age" value="">
+                        </div>
+                        <label class="col-md-2">Nationality :</label>
+                        <div class="col-md-4">
+                            <select class="" formControlName="nationality" name="nationality">
+                                <option value="indian">Indian</option>
+                                <option value="other">other</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <!--=====================================-->
+                <div class="form-group">
+                    <div class="row">
+                        <label for="field-1" class="col-md-2 control-label">Qualification: </label>
+                        <div class="col-md-4">
+                            <input type="text" class="" formControlName="guardian_qualifications" name="guardian_qualifications" >
+                        </div>
+                        <label for="field-1" class="col-md-2 control-label">Institute: </label>
+                        <div class="col-md-4">
+                            <input type="text" class="" formControlName="guardian_instituion" name="guardian_instituion">
+                        </div>
+                    </div>
+                </div>
+                <!--=====================================-->
+                <div class="form-group">
+                    <div class="row">
+                        <label for="field-1" class="col-md-2 control-label">Occupation: </label>
+                        <div class="col-md-4">
+                            <input type="text" class="" formControlName="guardian_occupation" name="guardian_occupation">
+                        </div>
+                        <label for="field-1" class="col-md-2 control-label">Designation: </label>
+                        <div class="col-md-4">
+                            <input type="text" class="" formControlName="guardian_designation" name="guardian_designation" >
+                        </div>
+                    </div>
+                </div>
+                <!--=====================================-->
+                <div class="form-group">
+                    <div class="row">
+                        <label for="field-1" class="col-md-2 control-label">Annual Income: </label>
+                        <div class="col-md-4">
+                            <input type="number" class="" formControlName="guardian_annual_income" name="guardian_annual_income">
+                        </div>
+                        <label for="field-1" class="col-md-2 control-label">Mobile No : </label>
+                        <div class="col-md-4">
+                            <span id="message"></span>
+                            <input type="number"  class="" formControlName="guardian_mobile" name="guardian_mobile" >
+                        </div>
+                    </div>
+
+                </div>
+                <!--=====================================-->
+                <div class="form-group">
+                    <div class="row">
+                        <label for="field-1" class="col-md-2 control-label">Aadhaar No: </label>
+                        <div class="col-md-10">
+                            <input type="number"  class="aadhaar_no" formControlName="aadhaar_no" name="aadhaar_no" >
+                        </div>
+                    </div>
+                </div>
+                <!--=====================================-->
+                <div class="form-group">
+                    <div class="row">
+                        <label for="field-1" class="col-md-2 control-label">Office Address: </label>
+                        <div class="col-md-10">
+                            <input type="text" class="" formControlName="guardian_office_address" name="guardian_office_address">
+                        </div>
+                    </div>
+                </div>
+                <!--=====================================-->
+                <div class="form-group">
+                    <div class="row">
+                        <label for="field-1" class="col-md-2 control-label">Home Address: </label>
+                        <div class="col-md-10">
+                            <input type="text" class="" formControlName="guardian_home_address" name="guardian_home_address">
+                        </div>
+                    </div>
+                </div>
+                <!--=====================================-->
+
+                <div class="form-group">
+                    <div class="row">
+                        <label for="field-1" class="col-md-2 control-label">Email : <em>*</em></label>
+                        <div class="col-md-4">
+                            <input type="email" class="" formControlName="email" name="email" >                          
+                        </div>
+                        <label for="field-2" class="col-md-2 control-label">Password : <em>*</em></label>
+                        <div class="col-md-4">
+                            <input type="text" class="" formControlName="password" name="password">
+                        </div>
+                    </div>
+                </div>
+                <!--=====================================-->
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                                <button type="button"  id="reset" (click)="reset()">Reset</button>
+
+                            <input *ngIf="!guardian_key" type="submit" [disabled]="guprofileForm.invalid" id="submit" class=" btn btn-success" value="Submit">
+                            <input *ngIf="guardian_key" type="submit" [disabled]="guprofileForm.invalid" id="submit" class=" btn btn-success" value="Update">
+                        </div>
+                    </div>
+                </div>
+                <!--=====================================-->
+                
+
+            </form>
+            <hr class="hr-white">
+            <br>
+        </div>
+    </div>
+</div>
+</div>

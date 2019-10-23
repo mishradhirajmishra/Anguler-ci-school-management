@@ -1,0 +1,17 @@
+.example-form {
+    width: 100%;
+  }
+  
+  .example-full-width {
+    width: 100% !important;
+  }
+  label.radio-inline.ch {
+    margin-right: 30px;
+}
+label {
+    margin-bottom: 0px;
+}
+button#reset ,input#submit{
+  width: 49%;
+}
+button#reset{background-color: red;margin-right: 2%;}

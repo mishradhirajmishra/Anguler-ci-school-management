@@ -1,0 +1,20 @@
+.form-control{margin-bottom: 10px !important;background-color: #3c4146 !important;
+  border: 1px solid #ced4da!important;color: white;}
+  button#reset ,input#submit{
+    width: 49%;
+}
+button#reset{background-color: red;margin-right: 2%;}
+.table-responsive {
+  width: 90%;
+
+}
+th.head {
+  text-align: center;
+  color: red;
+  background-color: black;
+}
+.red{
+  color: red;
+  float: right;
+  margin-right: 20px;
+}

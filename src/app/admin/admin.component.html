@@ -1,0 +1,47 @@
+<div class="sidenav" *ngIf="openvar">
+  <h2 class="close" (click)="close()"><i class="fa fa-times-circle" aria-hidden="true"></i></h2>
+  <img *ngIf="logo" class="logo-inner" [src]="logo">
+  <button (click)="close()" routerLink="/admin/dashboard" routerLinkActive="green-bg" class="btn btn-full"> <i
+      class="fa fa-tachometer"></i> DashBoard <span class="right"><i class="fa fa-angle-double-right"
+        aria-hidden="true"></i></span></button>
+  <button (click)="close()" routerLink="/admin/noticeboard" routerLinkActive="green-bg" class="btn btn-full"> <i
+      class="fa fa-tachometer"></i> Notice-Board <span class="right"><i class="fa fa-angle-double-right"
+        aria-hidden="true"></i></span></button>
+  <button (click)="close()" routerLink="/admin/attendance-summery" routerLinkActive="green-bg" class="btn btn-full"> <i
+      class="fa fa-tachometer"></i> Attendance Summary <span class="right"><i class="fa fa-angle-double-right"
+        aria-hidden="true"></i></span></button>
+  <button (click)="close()" routerLink="/admin/fee-summery" routerLinkActive="green-bg" class="btn btn-full"> <i
+      class="fa fa-tachometer"></i> Fee Summery <span class="right"><i class="fa fa-angle-double-right"
+        aria-hidden="true"></i></span></button>
+
+  <button (click)="close()" routerLink="/admin/guardian" routerLinkActive="green-bg" class="btn btn-full"> <i
+      class="fa fa-user"></i> Guardian <span class="right"><i class="fa fa-angle-right"
+        aria-hidden="true"></i></span></button>
+  <button (click)="close()" routerLink="/admin/student" routerLinkActive="green-bg" class="btn btn-full"> <i
+      class="fa fa-user"></i> Sudent <span class="right"><i class="fa fa-angle-right"
+        aria-hidden="true"></i></span></button>
+  <button (click)="close()" routerLink="/admin/employee" routerLinkActive="green-bg" class="btn btn-full"> <i
+      class="fa fa-user"></i> Employee <span class="right"><i class="fa fa-angle-right"
+        aria-hidden="true"></i></span></button>
+  <button (click)="close()" routerLink="/admin/class" routerLinkActive="green-bg" class="btn btn-full"> <i
+      class="fa fa-user"></i> Class <span class="right"><i class="fa fa-angle-right"
+        aria-hidden="true"></i></span></button>
+
+  <button (click)="close()" routerLink="/admin/period" routerLinkActive="green-bg" class="btn btn-full"> <i
+      class="fa fa-user"></i> Period <span class="right"><i class="fa fa-angle-right"
+        aria-hidden="true"></i></span></button>
+  <button (click)="close()" routerLink="/admin/fee" routerLinkActive="green-bg" class="btn btn-full"> <i
+      class="fa fa-user"></i> Fee <span class="right"><i class="fa fa-angle-right"
+        aria-hidden="true"></i></span></button>
+  <button (click)="close()" routerLink="/admin/exam" routerLinkActive="green-bg" class="btn btn-full"> <i
+      class="fa fa-user"></i> Exam <span class="right"><i class="fa fa-angle-right"
+        aria-hidden="true"></i></span></button>
+  <button (click)="logout()" class="btn btn-full"> <i class="fa fa-user"></i>Logout<span class="right"><i
+        class="fa fa-angle-right" aria-hidden="true"></i></span></button>
+</div>
+
+<div class="main" [class.main-active]="openvar">
+  <button (click)="open()" class=" side-btn btn btn-success"><i class="fa fa-arrow-left" aria-hidden="true"></i>
+    {{btntext}} <i class="fa fa-arrow-right" aria-hidden="true"></i></button>
+  <router-outlet></router-outlet>
+</div>

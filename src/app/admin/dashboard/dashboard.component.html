@@ -1,0 +1,209 @@
+<div class="row">
+  <!-- {{dashboardItems |json}} -->
+  <div class="col-lg-3 col-md-6 col-sm-6" >
+    <div class="card card-stats">
+      <div class="card-header card-header-warning card-header-icon">
+        <div class="card-icon">
+            <i class="fa fa-users" style="font-size:48px;color:red"></i>
+            <span class="bladge">{{dashboardItems?.student}}</span>
+        </div>
+        <h3 class="card-title">
+        </h3>
+      </div>
+      <div class="card-footer">
+        <div class="stats">
+        <H3 class="head-text">Students</H3>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-3 col-md-6 col-sm-6" >
+      <div class="card card-stats">
+        <div class="card-header card-header-warning card-header-icon">
+          <div class="card-icon">            
+              <i class="fa fa-users" style="font-size:48px;color:goldenrod"></i>
+              <span class="bladge">{{dashboardItems?.guardian}}</span>
+          </div>
+          <h3 class="card-title">
+          </h3>
+        </div>
+        <div class="card-footer">
+          <div class="stats">
+          <H3 class="head-text">Guardians</H3>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-3 col-md-6 col-sm-6" >
+        <div class="card card-stats">
+          <div class="card-header card-header-warning card-header-icon">
+            <div class="card-icon">
+                <i class="fa fa-users" style="font-size:48px;color:pink"></i>
+                <span class="bladge">{{dashboardItems?.teacher}}</span>
+            </div>
+            <h3 class="card-title">
+            </h3>
+          </div>
+          <div class="card-footer">
+            <div class="stats">
+            <H3 class="head-text">Teachers</H3>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-6 col-sm-6" >
+          <div class="card card-stats">
+            <div class="card-header card-header-warning card-header-icon">
+              <div class="card-icon">
+                  <i class="fa fa-users" style="font-size:48px;color:blue"></i>
+                  <span class="bladge">{{dashboardItems?.employee}}</span>
+              </div>
+              <h3 class="card-title">
+              </h3>
+            </div>
+            <div class="card-footer">
+              <div class="stats">
+              <H3 class="head-text">Employees</H3>
+              </div>
+            </div>
+          </div>
+        </div>
+
+            <div class="col-lg-3 col-md-6 col-sm-6" >
+                <div class="card card-stats">
+                  <div class="card-header card-header-warning card-header-icon">
+                    <div class="card-icon">
+                        <i class="fa fa-users" style="font-size:48px;color:yellow"></i>
+                        <span class="bladge">{{dashboardItems?.emp_present}}</span>
+                    </div>
+                    <h3 class="card-title">
+                    </h3>
+                  </div>
+                  <div class="card-footer">
+                    <div class="stats">
+                    <H3 class="head-text">Employee Present</H3>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-3 col-md-6 col-sm-6" >
+                  <div class="card card-stats">
+                    <div class="card-header card-header-warning card-header-icon">
+                      <div class="card-icon">
+                          <i class="fa fa-users" style="font-size:48px;color:red"></i>
+                          <span class="bladge">{{dashboardItems?.emp_absent}}</span>
+                      </div>
+                      <h3 class="card-title">
+                      </h3>
+                    </div>
+                    <div class="card-footer">
+                      <div class="stats">
+                      <H3 class="head-text">Employee Absent</H3>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-6" >
+                    <div class="card card-stats">
+                      <div class="card-header card-header-warning card-header-icon">
+                        <div class="card-icon">
+                            <i class="fa fa-users" style="font-size:48px;color:violet"></i>
+                            <span class="bladge">{{dashboardItems?.emp_leave}}</span>
+                        </div>
+                        <h3 class="card-title">
+                        </h3>
+                      </div>
+                      <div class="card-footer">
+                        <div class="stats">
+                        <H3 class="head-text">Employee Leave</H3>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-lg-3 col-md-6 col-sm-6" >
+                      <div class="card card-stats">
+                        <div class="card-header card-header-warning card-header-icon">
+                          <div class="card-icon">
+                              <i class="fa fa-book" style="font-size:48px;color:khaki"></i>
+                              <span class="bladge">{{dashboardItems?.book}}</span>
+                          </div>
+                          <h3 class="card-title">
+                          </h3>
+                        </div>
+                        <div class="card-footer">
+                          <div class="stats">
+                          <H3 class="head-text">Books</H3>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-sm-6" >
+                        <div class="card card-stats">
+                          <div class="card-header card-header-warning card-header-icon">
+                            <div class="card-icon">
+                                <i class="fa fa-book" style="font-size:48px;color:yellowgreen"></i>
+                                <span class="bladge">{{dashboardItems?.issuedBook}}</span>
+                            </div>
+                            <h3 class="card-title">
+                            </h3>
+                          </div>
+                          <div class="card-footer">
+                            <div class="stats">
+                            <H3 class="head-text">Issued Book</H3>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                  <div class="col-lg-3 col-md-6 col-sm-6" >
+                      <div class="card card-stats">
+                        <div class="card-header card-header-warning card-header-icon">
+                          <div class="card-icon">
+                              <i class="fa fa-money" style="font-size:48px;color:red"></i>
+                              <span class="bladge">{{dashboardItems?.f_today}}</span>
+                          </div>
+                          <h3 class="card-title">
+                          </h3>
+                        </div>
+                        <div class="card-footer">
+                          <div class="stats">
+                          <H3 class="head-text">Today Fee Collection</H3>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-sm-6" >
+                        <div class="card card-stats">
+                          <div class="card-header card-header-warning card-header-icon">
+                            <div class="card-icon">
+                                <i class="fa fa-money" style="font-size:48px;color:green"></i>
+                                <span class="bladge">{{dashboardItems?.f_month}}</span>
+                            </div>
+                            <h3 class="card-title">
+                            </h3>
+                          </div>
+                          <div class="card-footer">
+                            <div class="stats">
+                            <H3 class="head-text">This Month Fee Collection</H3>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-lg-3 col-md-6 col-sm-6" >
+                          <div class="card card-stats">
+                            <div class="card-header card-header-warning card-header-icon">
+                              <div class="card-icon">
+                                  <i class="fa fa-money" style="font-size:48px;color:blue"></i>
+                                  <span class="bladge">{{dashboardItems?.f_session}}</span>
+                              </div>
+                              <h3 class="card-title">
+                              </h3>
+                            </div>
+                            <div class="card-footer">
+                              <div class="stats">
+                              <H3 class="head-text">This Session Fee Collection</H3>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+</div>
+

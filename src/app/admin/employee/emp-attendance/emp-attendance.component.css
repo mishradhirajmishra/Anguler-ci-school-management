@@ -1,0 +1,11 @@
+.f-ch {
+    width: 184px !important;
+        background-color: yellowgreen;
+        color: white !important;
+        border: 2px solid black;
+    }
+    .form-control {
+        background-color: yellowgreen !important;
+        width: 200px;
+        margin: 0px auto;
+    }

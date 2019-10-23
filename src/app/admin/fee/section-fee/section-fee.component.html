@@ -1,0 +1,188 @@
+<div class="container-fluid">
+
+    <div class="alert alert-success alert-dismissible fade show" *ngIf="msg">
+        <button (click)="closemsg()" type="button" class="close" data-dismiss="alert">&times;</button>
+        <strong>{{msg}}</strong>
+    </div>
+
+    <div class="row mt-3 mb-5">
+        <!-- {{student |json}} -->
+        <div class="col-md-12">
+            <div class="login dark-gray">
+                <h1 class="inner"> <span class="left">Section</span> <span> Fee</span> </h1>
+                <hr class="hr-white">
+                <div class="row">
+
+                    <div class="col-md-5">
+                        <div class="scrolling outer">
+                            <div class="inner-table">
+                                <table class="table table-striped table-hover table-condensed">
+                                    <thead>
+                                        <tr>
+                                            <th class="headcol"> SN:&nbsp;&nbsp;&nbsp;Class
+
+                                            </th>
+                                            <th>
+                                        <tr>
+                                            <th class="no-border text-center" colspan="6">Section</th>
+                                        </tr>
+                                        <tr>
+
+                                            <th class="no-border">Name</th>
+                                            <th class="no-border">class Teacher</th>
+
+                                            <th class="no-border">Edit</th>
+
+                                        </tr>
+                                        </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr *ngFor="let cl of allClass;let i=index">
+                                            <td class="headcol">{{i+1}} - {{cl.name}} </td>
+                                            <td>
+                                                <!-- ---------------- -->
+                                                <span *ngIf="cl.status==1">
+                                        <tr *ngFor="let sec of cl.section;let j=index">
+
+                                            <td class="no-border">{{sec.name}}</td>
+                                            <td class="no-border">{{sec.teacher_name}}</td>
+
+                                            <td class="no-border text-center">
+                                                <button class="btn btn-ch" (click)="editFee(i,j)">Fee</button>
+                                            </td>
+                                        </tr>
+
+                                        </span>
+                                        <!-- ---------------- -->
+                                        </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-7">
+                        <!-- {{sectionAllFeeVar |json}} -->
+                        <div class="scrolling outer" >
+                            <div class="inner-table-2">
+                                <table class="table table-striped table-hover table-condensed">
+                                    <thead *ngIf="arrayVar.section_id">
+
+                                        <tr class="text-center black-bg">
+                                            <td colspan="5">Class: {{className}} &nbsp;&nbsp;&nbsp; Section :
+                                                {{sectionName}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <select class="form-control" name="arrayVar.fee_id"
+                                                    [(ngModel)]="arrayVar.fee_id">
+                                                    <option *ngFor="let allfeeVar of allFeeDropDownVar"
+                                                        [value]="allfeeVar.id">{{allfeeVar.name}}</option>
+                                                </select>
+                                            </td>
+                                            <td>
+                                                <input type="number" class="form-control" name="arrayVar.amount"
+                                                    [(ngModel)]="arrayVar.amount">
+                                            </td>
+                                            <td><button class="btn btn-ch" (click)="addSectionFee()"><i
+                                                        class="fa fa-3x fa-plus"></i> </button>
+                                                    </td><td> 
+                                                        <button class="btn btn-ch-red" (click)="print()"> <i class="fa fa-2x fa-print"></i></button>
+                                                    </td>
+                            
+                                        </tr>
+
+                                        <tr>
+                                            <th>SN &nbsp;&nbsp;Fee</th>
+                                            <th>Type</th>
+                                            <th>Amount</th>
+                                            <th>Total</th>
+                                            <th class="hide">Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody *ngIf="sectionAllFeeVar">
+                                        <tr *ngFor="let feeSection of sectionAllFeeVar ; let i=index">
+                                            <td>{{i}} - {{feeSection.fee_name}}</td>
+                                            <td>{{feeSection.type_name}}</td>
+                                            <td>{{feeSection.amount}}</td>
+                                            <td>{{feeSection.total}}</td>
+                                            <td class="hide"><button class="btn btn-ch-red" (click)="delete(feeSection.id)"> <i
+                                                        class="fa fa-trash"></i></button>
+                                            </td>
+
+                                        </tr>
+                                        <tr>
+                                            <td></td>
+                                            <th colspan="2">Grand Total</th>
+                                            <td>{{totalFee}}</td>
+                                            <td></td>
+                                        </tr>
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <!-- ------------------print--------------- -->
+                        <div id="printableArea" style="display: none" >
+                            <br><br><br>
+                            <div class="row">
+                                <div class="col-9"><br><h2 class="text-center">{{schoolName}} </h2>
+                                    <br><h1 class="text-center" style="font-size: 30px; color: green">Anual Fee Plan </h1>
+                                    <br><br>
+                                                        </div>
+                                <div class="col-3"><img class="logo-inner print-logo" [src]="logo"></div>
+                                <div class="col-12"><h1  style="font-size: 30px; color: green">Class: {{className}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Section :
+                                        {{sectionName}}</h1>
+                                    </div>
+                            </div>
+                       
+                             
+                             
+                        <table class="table ">
+                                <thead *ngIf="arrayVar.section_id">
+
+                                   <tr style="font-size: 30px; color: black">
+                                        <th>SN &nbsp;&nbsp;Fee</th>
+                                        <th>Type</th>
+                                        <th>Amount</th>
+                                        <th>Total</th>
+                                       
+                                    </tr>
+                                </thead>
+                                <tbody *ngIf="sectionAllFeeVar">
+                                    <tr *ngFor="let feeSection of sectionAllFeeVar ; let i=index" style="font-size: 30px; color: black">
+                                        <td style="color: black;">{{i}} - {{feeSection.fee_name}}</td>
+                                        <td style="color: black;">{{feeSection.type_name}}</td>
+                                        <td style="color: black;">{{feeSection.amount}}</td>
+                                        <td style="color: black;">{{feeSection.total}}</td>
+                                    </tr>
+                                    <tr style="font-size: 30px; color: black">
+                                        <td></td>
+                                        <th colspan="2">Grand Total</th>
+                                        <td style="color: black;">{{totalFee}}</td>
+                                       
+                                    </tr>
+
+                                </tbody>
+                            </table>
+                            <br> <br> <br><br> <br> <br>
+                            <div class="row">
+                              
+                                <div class="col-8"><h4> Date : {{date |date:'shortDate'}} </h4></div>
+                                <div class="col-4"><h3> Seal & Signature</h3></div>
+                            </div>
+                            </div>
+                        <!-- -------------------------------------- -->
+                    </div>
+                </div>
+
+                <hr class="hr-white">
+
+                <br>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,48 @@
+
+
+.f-ch {
+    width: 184px !important;
+        background-color: yellowgreen;
+        color: white !important;
+        border: 2px solid black;
+    }
+    .form-control {
+    background-color: 212529 !important;
+        margin-bottom: 5px;
+    }
+    .btn{width: 100%;     background-color: yellowgreen !important;}
+    .red{ color: red}
+    button.btn.btn-sm.pay {
+        width: 50px;
+    }
+    button.btn.btn-sm.pay {
+        float: right;
+    }
+    .black-bg {
+        background-color: black;
+        cursor: pointer;
+    }
+    .paid{float:right;}
+    span.red.paid {
+        border: 1px solid gray;
+        padding: 4px 8px;
+        border-radius: 6px;
+        background-color: white;
+       }
+       .scrolling td.headcol, .scrolling th.headcol {
+        width: 130px;
+    }
+    .inner-table {
+        margin-left: 130px;
+    }
+    .print{width: 100px ; background-color: red !important;color: white !important;}
+    h4.inner.center {
+        text-align: center;
+    }
+    i.fa.fa-trash {
+        color: red;
+        border: 1px solid red;
+        padding: 0px 8px;
+        border-radius: 13px;
+        cursor: pointer;
+    }

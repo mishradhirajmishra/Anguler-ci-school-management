@@ -1,0 +1,179 @@
+<div class="container-fluid">
+  <div class="alert alert-success alert-dismissible fade show" *ngIf="msg">
+    <button type="button" class="close" (click)="msg=''">&times;</button>
+    <strong>{{msg}}</strong>
+  </div>
+  <div class="row mt-3 mb-5">
+    <div class="col mb-1">
+      <select [(ngModel)]="class_id" (change)="getSectionFrm()">
+        <option value="">Select Class</option>
+        <option *ngFor="let cl of classlist" [value]="cl.class_id">{{cl.name}}</option>
+      </select>
+    </div>
+    <div class="col mb-1">
+      <select [(ngModel)]="section_id">
+        <option *ngFor="let sec of sectionlist" [value]="sec.section_id">{{sec.name}}</option>
+      </select>
+    </div>
+    <div class="col mb-1">
+      <input type="date" [(ngModel)]="date" class="form-control" (change)="getAttendance()">
+    </div>
+    <div class="col-md-12">
+      <!-- {{allStudent |json}} -->
+      <div class="login dark-gray">
+        <h1 class="inner"> <span class="left"><i class="fa fa-calendar"></i></span> Atten<span>dance</span></h1>
+
+        <div *ngIf="allStudentAttendance" class="scrolling outer">
+          <div class="inner-table">
+            <table class="table table-striped table-hover table-condensed">
+              <tr>
+                <th class="headcol">S.N &nbsp;Name</th>
+                <th>Attendance</th>
+                <th>Punctuality</th>
+                <th>Cleanliness</th>
+                <th>Attentiveness</th>
+                <th>Handwriting</th>
+                <th>Interactiveness</th>
+                <th>Home Work</th>
+                <th>Class Work</th>
+                <th>Remark</th>
+              </tr>
+              <!-- ------------------------------------------------------------------ -->
+              <tr *ngFor="let att of allStudentAttendance; let i=index">
+                <th class="headcol"> {{i+1}} - {{att.student_name}}</th>
+                <td>
+                  <select [(ngModel)]="att.attendance" name="att.attendance" class="form-control"
+                     (change)="updateAttendance(att.id,'attendance',att.attendance,att.class_id,att.student_name)">
+                    <option value="1">Present</option>
+                    <option value="2">On Leave</option>
+                    <option value="3">Absent</option>
+                  </select>
+                </td>
+                <td>
+                  <select [(ngModel)]="att.punctuality" name="att.punctuality" class="form-control"
+                   (change)="updateAttendance(att.id,'punctuality',att.punctuality,att.class_id,att.student_name)">
+                    <option value="10">10</option>
+                    <option value="9">09</option>
+                    <option value="8">08</option>
+                    <option value="7">07</option>
+                    <option value="6">06</option>
+                    <option value="5">05</option>
+                    <option value="4">04</option>
+                    <option value="3">03</option>
+                    <option value="2">02</option>
+                    <option value="1">01</option>
+                  </select>
+                </td>
+                <td>
+                  <select [(ngModel)]="att.cleanliness" name="att.cleanliness" class="form-control" 
+                  (change)="updateAttendance(att.id,'cleanliness',att.cleanliness,att.class_id,att.student_name)">
+                    <option value="10">10</option>
+                    <option value="9">09</option>
+                    <option value="8">08</option>
+                    <option value="7">07</option>
+                    <option value="6">06</option>
+                    <option value="5">05</option>
+                    <option value="4">04</option>
+                    <option value="3">03</option>
+                    <option value="2">02</option>
+                    <option value="1">01</option>
+                  </select>
+                </td>
+                <td>
+                  <select [(ngModel)]="att.attentiveness" name="att.attentiveness" class="form-control" 
+                  (change)="updateAttendance(att.id,'attentiveness',att.attentiveness,att.class_id,att.student_name)">
+                    <option value="10">10</option>
+                    <option value="9">09</option>
+                    <option value="8">08</option>
+                    <option value="7">07</option>
+                    <option value="6">06</option>
+                    <option value="5">05</option>
+                    <option value="4">04</option>
+                    <option value="3">03</option>
+                    <option value="2">02</option>
+                    <option value="1">01</option>
+                  </select>
+                </td>
+                <td>
+                  <select [(ngModel)]="att.handwriting" name="att.handwriting" class="form-control" 
+                  (change)="updateAttendance(att.id,'handwriting',att.handwriting,att.class_id,att.student_name)">
+                    <option value="10">10</option>
+                    <option value="9">09</option>
+                    <option value="8">08</option>
+                    <option value="7">07</option>
+                    <option value="6">06</option>
+                    <option value="5">05</option>
+                    <option value="4">04</option>
+                    <option value="3">03</option>
+                    <option value="2">02</option>
+                    <option value="1">01</option>
+                  </select>
+                </td>
+                <td>
+                  <select [(ngModel)]="att.interactive" name="att.interactive" class="form-control" 
+                  (change)="updateAttendance(att.id,'interactive',att.interactive,att.class_id,att.student_name)">
+                    <option value="10">10</option>
+                    <option value="9">09</option>
+                    <option value="8">08</option>
+                    <option value="7">07</option>
+                    <option value="6">06</option>
+                    <option value="5">05</option>
+                    <option value="4">04</option>
+                    <option value="3">03</option>
+                    <option value="2">02</option>
+                    <option value="1">01</option>
+                  </select>
+                </td>
+                <td>
+                  <select [(ngModel)]="att.homework" name="att.homework" class="form-control"
+                   (change)="updateAttendance(att.id,'homework',att.homework,att.class_id,att.student_name)">
+                    <option value="10">10</option>
+                    <option value="9">09</option>
+                    <option value="8">08</option>
+                    <option value="7">07</option>
+                    <option value="6">06</option>
+                    <option value="5">05</option>
+                    <option value="4">04</option>
+                    <option value="3">03</option>
+                    <option value="2">02</option>
+                    <option value="1">01</option>
+                  </select>
+                </td>
+                <td>
+                  <select [(ngModel)]="att.classwork" name="att.classwork" class="form-control" 
+                  (change)="updateAttendance(att.id,'classwork',att.classwork,att.class_id,att.student_name)">
+                    <option value="10">10</option>
+                    <option value="9">09</option>
+                    <option value="8">08</option>
+                    <option value="7">07</option>
+                    <option value="6">06</option>
+                    <option value="5">05</option>
+                    <option value="4">04</option>
+                    <option value="3">03</option>
+                    <option value="2">02</option>
+                    <option value="1">01</option>
+                  </select>
+                </td>
+                <td>
+                  <input [(ngModel)]="att.remark"  type="text" name="att.remark" class="form-control" (change)="updateAttendance(att.id,'remark',att.remark,att.class_id,att.student_name)">
+
+                </td>
+              </tr>
+              <!-------------------------------------------------------------->
+
+            </table>
+
+            <!-- ================================ -->
+          </div>
+        </div>
+        <div *ngIf="!allStudentAttendance" class="suggession" >
+          Please select class section and date to get attaendance
+         </div>
+        <hr class="hr-white">
+        <br>
+
+      </div>
+    </div>
+
+  </div>
+</div>

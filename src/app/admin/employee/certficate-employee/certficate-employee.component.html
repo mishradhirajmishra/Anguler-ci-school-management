@@ -1,0 +1,151 @@
+<div class="container-fluid">
+
+  <div class="alert alert-success alert-dismissible fade show" *ngIf="msg">
+      <button (click)="closemsg()" type="button" class="close" data-dismiss="alert">&times;</button>
+      <strong>{{msg}}</strong>
+  </div>
+  <!--==============================  -->
+  <div class="col-md-12 text-right mt-3">
+      <div class="btn-group btn-group-xs gp-bottom">
+            <button (click)="showForm()" type="button" class="btn btn-ch"><i class="fa  fa-plus"></i> add</button>
+          <button routerLink="/admin/employee/employee-detail/{{employee_key}}" routerLinkActive="active-white"
+              type="button" class="btn btn-ch">Employee Detail</button>
+
+          <button routerLink="/admin/employee/employee-experience/{{employee_key}}" routerLinkActive="active-white"
+              type="button" class="btn btn-ch">Experience</button>
+      </div>
+  </div>
+  <!-- ================================= -->
+  <div class="row mt-3 mb-5" *ngIf="!hideForm">
+      <!-- {{employee |json}} -->
+      <div class="col-md-12">
+          <!-- {{ guprofileForm.value |json}} -->
+          <div class="login dark-gray">
+              <h1 class="inner"> <span class="left"></span>{{headText}}<span> Qualification</span>
+              </h1>
+              <h5 class="below-heading"><i class="fa  fa-user"></i><span> &nbsp;{{employee?.name}}</span></h5>
+              <hr class="hr-white">
+
+              <form  [formGroup]="guprofileForm" (ngSubmit)="onSubmit()">
+                <br>
+                <input type="hidden" formControlName="qualification_id" name="qualification_id" >
+                <!--=====================================-->
+                <div class="row">
+                    <label class="col-sm-2">Course :</label>
+                    <div class="col-sm-4">
+                        <input type="text" formControlName="course" name="course">
+                    </div>
+                    <label class="col-sm-2">Board :</label>
+                    <div class="col-sm-4">
+                        <input type="text" formControlName="board" name="board">
+                    </div>
+
+                </div>
+
+                <!--=====================================-->
+                <div class="row">
+                    <label class="col-sm-2">Course Duration :</label>
+                    <div class="col-sm-4">
+                        <input type="text" formControlName="course_duration" name="course_duration">
+                    </div>
+                    <label class="col-sm-2">Completion Year :</label>
+                    <div class="col-sm-4">
+                        <input type="number" class="form-control" formControlName="year" name="year">
+                    </div>
+                </div>
+                <!--=====================================-->
+                <div class="row">
+                        <label class="col-sm-2">Specialisation :</label>
+                        <div class="col-sm-4">
+                            <input type="text" formControlName="specialisation" name="specialisation">
+                        </div>
+                    <label class="col-sm-2">Marks Achieved (%) :</label>
+                    <div class="col-sm-4">
+                        <input type="number" formControlName="marks_achieved" name="marks_achieved">
+                    </div>
+                </div>
+                <!--=====================================-->
+                <div class="row">
+
+                    <label class="col-sm-2">Subjects :</label>
+                    <div class="col-sm-10">
+                        <input type="text" formControlName="subjects" name="subjects">
+                    </div>
+                </div>
+                <!--=====================================-->
+                <div class="col-sm-12">
+                    <div class="row">
+                            <div class="col-sm-6">
+                                    <input type="reset" value="reset" class="delete">
+                                </div>
+                                <div class="col-sm-6">
+                                        <input [disabled]="guprofileForm.invalid" id="submit" class=" btn btn-success" value="Submit" type="Submit">
+
+                                    </div>
+                       
+                    </div>
+                </div>
+                <!--=====================================-->
+                </form>
+              <hr class="hr-white">
+              <br>
+          </div>
+      </div>
+  </div>
+    <!-- ================================= -->
+    <div class="row mt-3 mb-5">
+            <!-- {{employee |json}} -->
+            <div class="col-md-12">
+
+                <div class="login dark-gray">
+                    <h1 class="inner"> <span class="left"></span>Qualifi<span>cation</span>
+                    </h1>
+                    <h5 class="below-heading"><i class="fa  fa-user"></i><span> &nbsp;{{employee?.name}}</span></h5>
+                    <hr class="hr-white">
+
+                         <!-- {{allQualification | json}} -->
+                         <div class="scrolling outer">
+                              <div class="inner-table">
+                    
+                                <table class="table table-striped table-hover table-condensed">
+                                  <thead>
+                                    <tr>
+                                      <th class="headcol"> SN &nbsp;Course :</th>
+                                      <th>Board</th>
+                                      <th> Duration</th>
+                                      <th>Year</th>
+                                      <th>Subjects</th>
+                                      <th>Marks(%)</th>
+                                       <th>Specialisation</th>
+                                      <th>Action</th>
+                                    </tr>
+                                  </thead>
+                                  <tbody>
+                                    <tr *ngFor="let qualification of allQualification;let i=index">
+                    
+                                      <td class="headcol">{{i+1}} &nbsp;&nbsp;&nbsp;{{qualification.course}}</td>
+                                      <td>{{qualification.board}}</td>   
+                                      <td>{{qualification.course_duration}}</td>   
+                                      <td>{{qualification.year}}</td>   
+                                      <td>{{qualification.subjects}}</td>   
+                                      <td>{{qualification.marks_achieved}}</td> 
+                                  
+                                      <td>{{qualification.specialisation}}</td> 
+                                       <td>
+                                        <div class="btn-group btn-group-xs">
+                                          <button (click)="edit(i)" type="button" class="btn btn-ch ">Edit</button>
+                                          <button (click)="delete(qualification.qualification_id)" type="button delete" class="btn btn-ch-red ">delete</button>
+                                        </div>
+                                      </td>
+                    
+                                    </tr>
+                                  </tbody>
+                                </table>
+                              </div>
+                            </div>
+                            <hr class="hr-white">
+                    <br>
+                </div>
+            </div>
+        </div>
+</div>

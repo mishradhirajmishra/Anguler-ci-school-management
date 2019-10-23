@@ -1,0 +1,310 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:300,400,700);
+@media print {
+  @page { margin: 0px 50px;}
+  body { margin: 1.6cm; }
+  .hide {display: none;}
+  .print-logo {
+    width: 120px;
+  }
+  tr{font-size: 30px;color: black;}
+
+}
+@media screen {
+  .hide-screen {display: none;}
+}
+/* table */
+* {
+  box-sizing: border-box;
+ 
+}
+
+div{ font-size: 15px;}
+html {
+  font-family: helvetica;
+}
+
+html, body {
+  max-width: 100vw;
+}
+
+/* ============ */
+body{font-family: 'Roboto', sans-serif;}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+.login h1 {
+  color: #f0f5fa;
+  text-align: center;
+  margin-bottom: 0px !important;
+  padding: 10px;
+}
+.login h1 span {
+  color: yellowgreen;
+}
+
+.login form {
+  height: 100%;
+  padding: 20px;
+  padding-bottom: 40px;
+  background-color:  #23282df7;
+
+}
+select{
+  font-size: 14px !important;
+  border: 1px solid #3c4146;
+}
+
+.login form input,select,
+.login form button {
+  width: 100%;
+  margin-bottom: 10px;
+  border: none;
+  outline: none;
+  padding: 10px;
+  background-color: #3c4146;
+  color: #f8f8f2;
+  font-size: 16px;
+  line-height: 1.5em;
+  border-radius: 4px;
+  transition: all .5s ease;
+}
+.login form input::-webkit-input-placeholder,
+.login form button::-webkit-input-placeholder {
+  color: #8c9196;
+}
+.login form input:-ms-input-placeholder,
+.login form button:-ms-input-placeholder {
+  color: #8c9196;
+}
+.login form input::-ms-input-placeholder,
+.login form button::-ms-input-placeholder {
+  color: #8c9196;
+}
+.login form input::placeholder,
+.login form button::placeholder {
+  color: #8c9196;
+}
+.login form input:focus,
+.login form button:focus {
+  background-color: #50555a;
+  color: white;
+}
+
+.login form button[type="submit"] {
+  text-transform: uppercase;
+  font-weight: 700;
+  background-color: yellowgreen;
+  color: #f0f5fa;
+  cursor: pointer;
+  transition: all .5s ease;
+}
+.login form button[type="submit"]:hover {
+  background-color: yellowgreen;
+  color: white;
+}
+
+.morestuff {
+  margin-top: 20px;
+  text-align: center;
+  font-size: 14px;
+}
+.morestuff a {
+  transition: color .5s ease;
+}
+.morestuff a:link {
+  color: yellowgreen;
+}
+.morestuff a:hover {
+  color: #a1e553;
+}
+.morestuff a:visited {
+  color: #6b9937;
+}
+img.logo {
+  width: 50px;
+  margin: 0px auto;
+  background-color: white;
+  border-radius: 50%;
+  padding: 4px;
+}
+
+/* ========================================= */
+
+label {
+  font-size: 18px;
+
+  color: greenyellow;
+}
+.white-color{color: white;}
+input#submit {
+  background-color: yellowgreen;
+}
+input#submit:hover {
+  background-color: #6b9937;
+}
+.alert{
+  position: fixed!important;
+  z-index: 1!important;
+  top: 3px;
+  right:5px;
+  font-size: 14px;
+  color: greenyellow;
+  width: 300px;
+  float: right;
+  margin: 10px;
+  background-color: white!important;
+  border: 1px solid black!important;
+}
+button.close {
+  color: greenyellow !important;
+  margin: 6px !important;
+  background-color: black!important;
+  border-radius: 50%;
+  padding: 2px 8px 8px 9px !important;
+}
+input#submit:disabled ,:disabled {
+  background-color: red;
+  cursor: not-allowed;
+}
+
+hr.hr-white {
+  background-color: azure;
+}
+.btn-icon{margin-left: 10px}
+.dark-gray {
+  background-color: #212529;
+}
+.table {
+  background-color:  #3c4146;
+  font-size: 15px;
+  margin-bottom:0px !important; 
+}
+.scrolling.outer {
+  margin-bottom: -15px;
+}
+button.btn.btn-ch-red {
+  background-color: #212529;
+  color: red;
+  border: 1px solid greenyellow;
+  font-size: 15px;
+  margin: 0px;
+  padding: 3px 10px;
+  -webkit-box-shadow: 10px 10px 108px 0px rgba(255,255,255,1);
+  -moz-box-shadow: 10px 10px 108px 0px rgba(255,255,255,1);
+  box-shadow: 10px 10px 108px 0px rgba(255,255,255,1);
+}
+button.btn.btn-ch {
+  background-color: #212529;
+  color: greenyellow;
+  border: 1px solid greenyellow;
+  font-size: 15px;
+  margin: 0px;
+  padding: 3px 10px;
+  -webkit-box-shadow: 10px 10px 108px 0px rgba(255,255,255,1);
+  -moz-box-shadow: 10px 10px 108px 0px rgba(255,255,255,1);
+  box-shadow: 10px 10px 108px 0px rgba(255,255,255,1);
+}
+#edit{float: right;    margin: 15px;}
+th{  color: greenyellow;}
+td{  color: white;}
+.scrolling table {
+  table-layout: inherit;
+*margin-left: -100px;/*ie7*/
+}
+
+.scrolling td.headcol,.scrolling th.headcol {
+position: absolute;
+*position: relative; /*ie7*/
+left: 0;
+width: 220px;
+}
+.outer {
+position: relative
+}
+.inner-table {
+overflow-x: auto;
+overflow-y: visible;
+margin-left: 220px;
+}
+.detail-txt{color: white;}
+.table td, .table th {
+  padding: 1px 10px !important;
+}
+input#file {
+  display: none;
+}
+img.img-fluid.profile-image {
+  width: 221px;
+  border-radius: 25%;
+}
+label.button.button.white.but-sm {
+  border: 1px solid greenyellow;
+  padding: 4px;
+  border-radius: 6px;
+}
+th,td{min-width: 120px !important;}
+input#Search {
+  background-color: yellowgreen;
+  color: white !important;
+  border: 2px solid black;
+}
+.btn-group.btn-group-xs.gp-bottom {
+  box-shadow: 10px 10px 108px 0px rgba(255,255,255,1);
+
+}
+.text-right {
+  text-align: right;
+}
+.card-center{margin: 0px auto}
+h5.below-heading {
+    color: white;
+    text-align: center;
+}
+input.delete {
+  background-color: red !important;
+  border: 2px solid red !important;
+}
+.suggession {
+  text-align: center;
+  color: red;
+  margin-top: 20px;
+  width: 80%;
+  margin: 0px auto;
+  border: 1px solid white;
+  border-radius: 50px;
+  padding: 10px 0px;
+}
+.badge-active {
+  background-color: greenyellow;
+  border-radius: 10px;
+  padding: 0px 20px;
+  color: black;
+  cursor: pointer;
+  -webkit-box-shadow: 10px 10px 108px 0px rgba(255,255,255,1);
+  -moz-box-shadow: 10px 10px 108px 0px rgba(255,255,255,1);
+  box-shadow: 10px 10px 108px 0px rgba(255,255,255,1);
+}
+.badge-inactive {
+  background-color: red;
+  border-radius: 10px;
+  padding: 0px 20px;
+  cursor: pointer;
+  -webkit-box-shadow: 10px 10px 108px 0px rgba(255,255,255,1);
+  -moz-box-shadow: 10px 10px 108px 0px rgba(255,255,255,1);
+  box-shadow: 10px 10px 108px 0px rgba(255,255,255,1);
+}
+.text-center{text-align: center;}
+
+
+@media only screen and (max-width: 991px) {
+  h1.inner {
+    font-size: 25px !important;
+}
+}

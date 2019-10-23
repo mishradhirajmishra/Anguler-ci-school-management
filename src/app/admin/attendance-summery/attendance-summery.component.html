@@ -1,0 +1,82 @@
+<div class="container-fluid">
+
+        <div class="alert alert-success alert-dismissible fade show" *ngIf="msg">
+          <button (click)="closemsg()" type="button" class="close" data-dismiss="alert">&times;</button>
+          <strong>{{msg}}</strong>
+        </div>
+      
+        <div class="row mt-3 mb-5">
+          <!-- {{student |json}} -->
+          <div class="col-md-12">
+            <div class="login dark-gray">
+              <h1 class="inner"> <span class="left"></span> Attendance<span> Summery</span>
+              </h1>
+              <hr class="hr-white">
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="scrolling outer">
+                    <div class="inner-table">
+                      <table class="table table-striped table-hover table-condensed">
+                        <thead>
+                          <tr>
+                            <th class="headcol"> SN:&nbsp;&nbsp;&nbsp;Class
+      
+                            </th>
+                            <th>
+                          <tr>
+                            <th class="no-border text-center" colspan="6">Section</th>
+                          </tr>
+                          <tr>
+                          
+                            <th class="no-border ">Name</th>
+                            <th class="no-border w300">Today</th>
+                            <th class="no-border w300">This Month</th>
+                            <th class="no-border w300">This Session</th>
+                            <th class="no-border w300">Status</th>
+
+                          </tr>
+                          </th>
+
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr *ngFor="let cl of allClass;let i=index">
+                            <td class="headcol">{{i+1}} - {{cl.name}} </td>
+                            <td>
+                              <!-- ---------------- -->
+                              <span *ngIf="cl.status==1">
+                          <tr *ngFor="let sec of cl.section;let j=index">
+                           
+                            <td class="no-border">{{sec.name}}</td>
+                            <td class="w300"> <span style="color:green">P : </span>{{sec.p_today}} &nbsp;&nbsp;&nbsp;<span style="color:red">A : </span> {{sec.a_today}} &nbsp;&nbsp;&nbsp;<span style="color:blue">L : </span>{{sec.l_today}} </td>
+                            <td class="w300"> <span style="color:green">P : </span>{{sec.p_month}} &nbsp;&nbsp;&nbsp;<span style="color:red">A : </span> {{sec.a_month}} &nbsp;&nbsp;&nbsp;<span style="color:blue">L : </span>{{sec.l_month}} </td>
+                            <td class="w300"> <span style="color:green">P : </span>{{sec.p_session}} &nbsp;&nbsp;&nbsp;<span style="color:red">A : </span> {{sec.a_session}} &nbsp;&nbsp;&nbsp;<span style="color:blue">L : </span>{{sec.l_session}} </td>
+                            <td class="w300"> 
+                                    <span *ngIf="sec.status" class="label label-sm btn-green"><i class="fa fa-gavel" aria-hidden="true"></i> Attendance Taken</span>
+                                    <span *ngIf="!sec.status" class="label label-sm btn-red"><i class="fa fa-exclamation" aria-hidden="true"></i> Attendance Not Taken</span>
+
+                            </td>
+
+                            
+                          </tr>
+                          </span>
+                          <!-- ---------------- -->
+                          </td>
+
+      
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+      
+              </div>
+      
+              <hr class="hr-white">
+      
+              <br>
+            </div>
+          </div>
+        </div>
+      </div>
